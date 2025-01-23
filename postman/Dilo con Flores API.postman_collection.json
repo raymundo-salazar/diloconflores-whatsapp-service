@@ -1,0 +1,3483 @@
+{
+	"info": {
+		"_postman_id": "762e44fd-2710-4931-8dee-455dd61088de",
+		"name": "Dilo con Flores API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11202307",
+		"_collection_link": "https://diloconflores.postman.co/workspace/Dilo-con-Flores~c3d2b7ac-bf63-4721-a011-3e4e31fd6dfc/collection/11202307-762e44fd-2710-4931-8dee-455dd61088de?action=share&source=collection_link&creator=11202307"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "Permissions by role",
+							"item": [
+								{
+									"name": "Get permissions by role",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/roles/2/permissions?limit=5&",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"roles",
+												"2",
+												"permissions"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Page number to fetch. Used for pagination purposes (optional) (default: 1)",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "5",
+													"description": "Number of records to fetch. Used for pagination purposes (optional) (default: 50)"
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "Number of records to skip. Used for pagination purposes (optional) (default: 0)",
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[OK] - Success response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{ENDPOINT_LOCAL}}/admin/roles",
+													"host": [
+														"{{ENDPOINT_LOCAL}}"
+													],
+													"path": [
+														"admin",
+														"roles"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1",
+															"description": "Page number to fetch. Used for pagination purposes (optional) (default: 1)",
+															"disabled": true
+														},
+														{
+															"key": "limit",
+															"value": "50",
+															"description": "Number of records to fetch. Used for pagination purposes (optional) (default: 50)",
+															"disabled": true
+														},
+														{
+															"key": "offset",
+															"value": "0",
+															"description": "Number of records to skip. Used for pagination purposes (optional) (default: 0)",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1920"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"780-krU12RufguIsuvpHGwqOxfaBLIQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 14 Jan 2025 18:33:58 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"SuperAdmin\",\n            \"code\": \"SUPER_ADMIN\",\n            \"description\": \"Role with full access to all system functionalities\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Admin\",\n            \"code\": \"ADMIN\",\n            \"description\": \"Role assigned to users who manage general back-office operations\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Branch Manager\",\n            \"code\": \"BRANCH_MANAGER\",\n            \"description\": \"Role assigned to users who manage specific branches and their operations\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Branch User\",\n            \"code\": \"BRANCH_USER\",\n            \"description\": \"Role assigned to users who assist in branch operations\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Driver\",\n            \"code\": \"DRIVER\",\n            \"description\": \"Role assigned to users responsible for deliveries and logistics\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Customer\",\n            \"code\": \"CUSTOMER\",\n            \"description\": \"Role assigned to users who purchase products and manage their orders\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Test role\",\n            \"code\": \"TEST_ROLE\",\n            \"description\": \"This role is an example to validate if POST method works propertly\",\n            \"created_at\": \"2025-01-14T17:48:21.000Z\",\n            \"updated_at\": \"2025-01-14T17:48:21.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 8,\n            \"name\": \"test\",\n            \"code\": \"TEST\",\n            \"description\": \"this is the description of this role\",\n            \"created_at\": \"2025-01-14T18:08:20.000Z\",\n            \"updated_at\": \"2025-01-14T18:08:20.000Z\",\n            \"permissions\": []\n        }\n    ],\n    \"message\": \"Roles retrieved successfully\",\n    \"info\": {\n        \"totals\": {\n            \"show\": 8,\n            \"total\": 8\n        },\n        \"pages\": {\n            \"current\": 1,\n            \"totalPages\": 1,\n            \"next\": null,\n            \"previous\": 1\n        }\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Set permission to role",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "/**\n* Para este servicio se puede enviar el id del permiso o el codigo de este.\n* En caso de que se envien ambos se tomará en cuenta solo el `id`, el `code` sera ingorado.\n*/\n\n{\n    \"permissions\": [\n        {\n            \"id\" : 5,\n            \"scope\": \"own\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/roles/{{ROLE_ID}}/permissions",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"roles",
+												"{{ROLE_ID}}",
+												"permissions"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[ERROR] - Invalid permission id",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"permissions\": [\n        {\n            \"code\" : \"VIEW_ADDRESS_TYPES\",\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 2,\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 12345689, // <- this is invalid\n            \"scope\": \"global\"\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}/permissions",
+													"host": [
+														"{{ENDPOINT_LOCAL}}"
+													],
+													"path": [
+														"admin",
+														"roles",
+														"{{ROLE_ID}}",
+														"permissions"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "158"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"9e-449WIeC2+mvYzFARg8Bo5yR9XHA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 15 Jan 2025 17:12:04 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"CREATION_ERROR\",\n        \"message\": \"One or more of the permissions are invalid\",\n        \"resource\": \"Failed to create \\\"roles/permissions\\\"\"\n    }\n}"
+										},
+										{
+											"name": "[OK] - Previously assigned",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"permissions\": [\n        {\n            \"code\" : \"VIEW_ADDRESS_TYPES\",\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 2,\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 7,\n            \"scope\": \"global\"\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}/permissions",
+													"host": [
+														"{{ENDPOINT_LOCAL}}"
+													],
+													"path": [
+														"admin",
+														"roles",
+														"{{ROLE_ID}}",
+														"permissions"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "642"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"282-7U+ZIgNQHYIsBRz3UZIxzY6+M9A\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 15 Jan 2025 17:14:17 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"View Address types\",\n            \"code\": \"VIEW_ADDRESS_TYPES\",\n            \"description\": \"Permission to view records in the address_types table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Create Address types\",\n            \"code\": \"CREATE_ADDRESS_TYPES\",\n            \"description\": \"Permission to create records in the address_types table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Edit Countries\",\n            \"code\": \"EDIT_COUNTRIES\",\n            \"description\": \"Permission to edit records in the countries table\",\n            \"scope\": \"global\",\n            \"granted_at\": \"2025-01-15T17:08:27.000Z\"\n        }\n    ],\n    \"message\": \"All permissions were previously assigned\"\n}"
+										},
+										{
+											"name": "[OK] - Success response",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"permissions\": [\n        {\n            \"code\" : \"VIEW_ADDRESS_TYPES\",\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 2,\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 7,\n            \"scope\": \"own\"\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}/permissions",
+													"host": [
+														"{{ENDPOINT_LOCAL}}"
+													],
+													"path": [
+														"admin",
+														"roles",
+														"{{ROLE_ID}}",
+														"permissions"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "632"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"278-MSDZBD0Cn0MnGAoL7qv0q+a1qGA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 15 Jan 2025 17:14:49 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"View Address types\",\n            \"code\": \"VIEW_ADDRESS_TYPES\",\n            \"description\": \"Permission to view records in the address_types table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Create Address types\",\n            \"code\": \"CREATE_ADDRESS_TYPES\",\n            \"description\": \"Permission to create records in the address_types table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Edit Countries\",\n            \"code\": \"EDIT_COUNTRIES\",\n            \"description\": \"Permission to edit records in the countries table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T17:14:49.000Z\"\n        }\n    ],\n    \"message\": \"Role permissions set successfully\"\n}"
+										},
+										{
+											"name": "[OK] - Reassign permissions",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"permissions\": [\n        {\n            \"code\" : \"VIEW_ADDRESS_TYPES\",\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 2,\n            \"scope\": \"own\"\n        },\n        {\n            \"id\": 7,\n            \"scope\": \"global\" // <-- This permission was previously assigned, just change the scope\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}/permissions",
+													"host": [
+														"{{ENDPOINT_LOCAL}}"
+													],
+													"path": [
+														"admin",
+														"roles",
+														"{{ROLE_ID}}",
+														"permissions"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "635"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"27b-MbLEwGo2iTXEYZ9FI77xRn/6CJ0\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 15 Jan 2025 17:15:31 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"View Address types\",\n            \"code\": \"VIEW_ADDRESS_TYPES\",\n            \"description\": \"Permission to view records in the address_types table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Create Address types\",\n            \"code\": \"CREATE_ADDRESS_TYPES\",\n            \"description\": \"Permission to create records in the address_types table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Edit Countries\",\n            \"code\": \"EDIT_COUNTRIES\",\n            \"description\": \"Permission to edit records in the countries table\",\n            \"scope\": \"global\",\n            \"granted_at\": \"2025-01-15T17:15:31.000Z\"\n        }\n    ],\n    \"message\": \"Role permissions set successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete permission to role",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "/**\n* Para este servicio se puede enviar el id del permiso o el codigo de este.\n* En caso de que se envien ambos se tomará en cuenta solo el `id`, el `code` sera ingorado.\n*/\n\n\n{\n    \"permissions\": [\n        {\n            // \"id\": 1,\n            \"code\" : \"VIEW_ADDRESS_TYPES\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/roles/{{ROLE_ID}}/permissions",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"roles",
+												"{{ROLE_ID}}",
+												"permissions"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[OK] - Success response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"permissions\": [\n        {\n            \"code\" : \"VIEW_ADDRESS_TYPES\"\n        },\n        {\n            \"id\" : 2\n        },\n        {\n            \"id\" : 7\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}/permissions",
+													"host": [
+														"{{ENDPOINT_LOCAL}}"
+													],
+													"path": [
+														"admin",
+														"roles",
+														"{{ROLE_ID}}",
+														"permissions"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "451"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1c3-5XUmCuk58IiCweXF8DX8OxN46P4\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 15 Jan 2025 21:54:46 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 13,\n            \"name\": \"View Cities\",\n            \"code\": \"VIEW_CITIES\",\n            \"description\": \"Permission to view records in the cities table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Create Cities\",\n            \"code\": \"CREATE_CITIES\",\n            \"description\": \"Permission to create records in the cities table\",\n            \"scope\": \"own\",\n            \"granted_at\": \"2025-01-15T15:33:40.000Z\"\n        }\n    ],\n    \"message\": \"Role permissions (1,2,7) deleted successfully from role with ID \\\"6\\\"\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all roles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/roles",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"roles"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number to fetch. Used for pagination purposes (optional) (default: 1)",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "50",
+											"description": "Number of records to fetch. Used for pagination purposes (optional) (default: 50)",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Number of records to skip. Used for pagination purposes (optional) (default: 0)",
+											"disabled": true
+										},
+										{
+											"key": "permissions",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Page number to fetch. Used for pagination purposes (optional) (default: 1)",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "50",
+													"description": "Number of records to fetch. Used for pagination purposes (optional) (default: 50)",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"description": "Number of records to skip. Used for pagination purposes (optional) (default: 0)",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1920"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"780-krU12RufguIsuvpHGwqOxfaBLIQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 18:33:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"SuperAdmin\",\n            \"code\": \"SUPER_ADMIN\",\n            \"description\": \"Role with full access to all system functionalities\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Admin\",\n            \"code\": \"ADMIN\",\n            \"description\": \"Role assigned to users who manage general back-office operations\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Branch Manager\",\n            \"code\": \"BRANCH_MANAGER\",\n            \"description\": \"Role assigned to users who manage specific branches and their operations\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Branch User\",\n            \"code\": \"BRANCH_USER\",\n            \"description\": \"Role assigned to users who assist in branch operations\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Driver\",\n            \"code\": \"DRIVER\",\n            \"description\": \"Role assigned to users responsible for deliveries and logistics\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Customer\",\n            \"code\": \"CUSTOMER\",\n            \"description\": \"Role assigned to users who purchase products and manage their orders\",\n            \"created_at\": \"2025-01-14T14:50:02.000Z\",\n            \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Test role\",\n            \"code\": \"TEST_ROLE\",\n            \"description\": \"This role is an example to validate if POST method works propertly\",\n            \"created_at\": \"2025-01-14T17:48:21.000Z\",\n            \"updated_at\": \"2025-01-14T17:48:21.000Z\",\n            \"permissions\": []\n        },\n        {\n            \"id\": 8,\n            \"name\": \"test\",\n            \"code\": \"TEST\",\n            \"description\": \"this is the description of this role\",\n            \"created_at\": \"2025-01-14T18:08:20.000Z\",\n            \"updated_at\": \"2025-01-14T18:08:20.000Z\",\n            \"permissions\": []\n        }\n    ],\n    \"message\": \"Roles retrieved successfully\",\n    \"info\": {\n        \"totals\": {\n            \"show\": 8,\n            \"total\": 8\n        },\n        \"pages\": {\n            \"current\": 1,\n            \"totalPages\": 1,\n            \"next\": null,\n            \"previous\": 1\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a role",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"code\" : \"SUPER_?ADMIN\",\n    \"name\" : \"Super Admin\",\n    \"description\" : \"this is the description of this role\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/roles",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"test\",\n    \"description\" : \"this is the description of this role\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "231"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e7-xUdUJ5Pp/gA2NExBuNCvugkfbe0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 18:08:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"created_at\": \"2025-01-14T18:08:20.591Z\",\n        \"updated_at\": \"2025-01-14T18:08:20.591Z\",\n        \"id\": 8,\n        \"name\": \"test\",\n        \"description\": \"this is the description of this role\",\n        \"code\": \"TEST\"\n    },\n    \"message\": \"Role created successfully\"\n}"
+								},
+								{
+									"name": "[ERROR] - Missing params",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "158"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9e-0cfXg7g8H7lNsB+2vbNXKjhcR3Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 18:05:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"MISSING_PARAMETERS\",\n        \"message\": \"Role validation failed: \\\"name\\\" is required\",\n        \"resource\": \"Missing parameters for \\\"roles\\\"\"\n    }\n}"
+								},
+								{
+									"name": "[ERROR] - Role exists",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"admin\",\n    \"description\" : \"this is the description of this role\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "161"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a1-0YSeqU4NicORnDDySyuMrZzTod0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 18:07:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"CREATION_ERROR\",\n        \"message\": \"Role with name \\\"admin\\\" or code \\\"ADMIN\\\" already exists\",\n        \"resource\": \"Failed to create \\\"roles\\\"\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get one role",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/roles/{{ROLE_ID}}",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"roles",
+										"{{ROLE_ID}}"
+									],
+									"query": [
+										{
+											"key": "permissions",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "name,code",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{ROLE_ID}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "271"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10f-BQvtklABQsZwkEtdqfNNLZ3cGJQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 22:52:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"SuperAdmin\",\n        \"code\": \"SUPER_ADMIN\",\n        \"description\": \"Role with full access to all system functionalities\",\n        \"created_at\": \"2025-01-14T14:50:02.000Z\",\n        \"updated_at\": \"2025-01-14T14:50:02.000Z\",\n        \"permissions\": []\n    },\n    \"message\": \"Operation successful\"\n}"
+								},
+								{
+									"name": "[OK] - Request with specific fields",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/roles/{{ROLE_ID}}?fields=name,code",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"roles",
+												"{{ROLE_ID}}"
+											],
+											"query": [
+												{
+													"key": "permissions",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "fields",
+													"value": "name,code"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "99"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"63-DY1hKALHAVR7tb+yoKZuMquTtkE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 03:01:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"SuperAdmin\",\n        \"code\": \"SUPER_ADMIN\"\n    },\n    \"message\": \"Operation successful\"\n}"
+								},
+								{
+									"name": "[ERROR] - Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{BAD_ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{BAD_ROLE_ID}}"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "117"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"75-XKkeoWXN0AtAkB7HMfRSNQTBN/M\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 22:53:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"NOT_FOUND_ERROR\",\n        \"message\": \"Role with ID \\\"999999\\\" not found\",\n        \"resource\": \"roles\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Edit Role",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"Role de prueba\",\n    \"description\" : \"This role is created as test\",\n    \"code\"  : \"TEST\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/roles/{{ROLE_ID}}",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"roles",
+										"{{ROLE_ID}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[ERROR] - Missing data",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/1",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"1"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "172"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ac-NsQct/troJRe8Y+yxdmiJF7M1AI\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 22:48:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"MISSING_PARAMETERS\",\n        \"message\": \"Role validation failed: \\\"value\\\" must have at least 1 key\",\n        \"resource\": \"Missing parameters for \\\"roles\\\"\"\n    }\n}"
+								},
+								{
+									"name": "[ERROR] - Not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{BAD_ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{BAD_ROLE_ID}}"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "117"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"75-XKkeoWXN0AtAkB7HMfRSNQTBN/M\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 22:54:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"NOT_FOUND_ERROR\",\n        \"message\": \"Role with ID \\\"999999\\\" not found\",\n        \"resource\": \"roles\"\n    }\n}"
+								},
+								{
+									"name": "[ERROR] - Code exists",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\" : \"SUPER_ADMIN\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{ROLE_ID}}"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "149"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"95-ck7F2cBdraM4y+znZ4PkFT49Dts\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 23:00:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"CREATION_ERROR\",\n        \"message\": \"Role with code \\\"SUPER_ADMIN\\\" already exists\",\n        \"resource\": \"Failed to create \\\"roles\\\"\"\n    }\n}"
+								},
+								{
+									"name": "[ERROR] - Code exists (case sensitive)",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\" : \"super admin\" // Always uppercase and replace spaces with underscores\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{ROLE_ID}}"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "149"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"95-ck7F2cBdraM4y+znZ4PkFT49Dts\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 23:01:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"CREATION_ERROR\",\n        \"message\": \"Role with code \\\"SUPER_ADMIN\\\" already exists\",\n        \"resource\": \"Failed to create \\\"roles\\\"\"\n    }\n}"
+								},
+								{
+									"name": "[ERROR] - Invalid field",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"Test role\",\n    \"descriptio\" : \"This role is created as test\",\n    \"code\" : \"TEST\" // Always uppercase and replace spaces with underscores\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{ROLE_ID}}"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "167"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a7-cuaLRziu+d8c9Bc0X96x8S/CQzw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 23:03:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"MISSING_PARAMETERS\",\n        \"message\": \"Role validation failed: \\\"descriptio\\\" is not allowed\",\n        \"resource\": \"Missing parameters for \\\"roles\\\"\"\n    }\n}"
+								},
+								{
+									"name": "[OK] - Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"Role de prueba\",\n    \"description\" : \"This role is created as test\",\n    \"code\"  : \"TEST\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles/{{ROLE_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												"{{ROLE_ID}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "233"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e9-2UuLGassF+I6jod1dLuMeXG754I\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 15 Jan 2025 13:45:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 8,\n        \"name\": \"Role de prueba\",\n        \"code\": \"TEST\",\n        \"description\": \"This role is created as test\",\n        \"created_at\": \"2025-01-14T18:08:20.000Z\",\n        \"updated_at\": \"2025-01-14T23:00:42.000Z\"\n    },\n    \"message\": \"Role updated successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Options",
+							"request": {
+								"method": "OPTIONS",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/roles",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success Response",
+									"originalRequest": {
+										"method": "OPTIONS",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/admin/roles",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Allow",
+											"value": "GET,POST,PUT,DELETE,OPTIONS"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "91"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5b-8KQyvOTwz7BYX+HEbgEAJL0Oy6E\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 15 Jan 2025 13:47:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Available methods: GET, POST, PUT, DELETE, OPTIONS\"\n}"
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Permissions",
+					"item": [
+						{
+							"name": "Get all permissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/permissions",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"permissions"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "50",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "7",
+											"disabled": true
+										},
+										{
+											"key": " search[table][eq]",
+											"value": "addresses",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "50",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "10586"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"295a-1ugFx9hnQTbIZikB+rCkGLUogcE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 02:00:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"code\": \"VIEW_ADDRESS_TYPES\",\n            \"name\": \"View address types\",\n            \"description\": \"Permission to view all address type records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"code\": \"VIEW_ADDRESS_TYPES_DETAIL\",\n            \"name\": \"View address type details\",\n            \"description\": \"Permission to view the details of a specific address type record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 3,\n            \"code\": \"CREATE_ADDRESS_TYPES\",\n            \"name\": \"Create address types\",\n            \"description\": \"Permission to create a new address type.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 4,\n            \"code\": \"EDIT_ADDRESS_TYPES\",\n            \"name\": \"Edit address types\",\n            \"description\": \"Permission to modify an existing address type.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 5,\n            \"code\": \"DELETE_ADDRESS_TYPES\",\n            \"name\": \"Delete address types\",\n            \"description\": \"Permission to remove an address type.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 6,\n            \"code\": \"VIEW_COUNTRIES\",\n            \"name\": \"View countries\",\n            \"description\": \"Permission to view all country records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 7,\n            \"code\": \"VIEW_COUNTRIES_DETAIL\",\n            \"name\": \"View country details\",\n            \"description\": \"Permission to view the details of a specific country record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 8,\n            \"code\": \"CREATE_COUNTRIES\",\n            \"name\": \"Create countries\",\n            \"description\": \"Permission to create a new country record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 9,\n            \"code\": \"EDIT_COUNTRIES\",\n            \"name\": \"Edit countries\",\n            \"description\": \"Permission to modify an existing country record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 10,\n            \"code\": \"DELETE_COUNTRIES\",\n            \"name\": \"Delete countries\",\n            \"description\": \"Permission to remove a country record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 11,\n            \"code\": \"VIEW_STATES\",\n            \"name\": \"View states\",\n            \"description\": \"Permission to view all state records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 12,\n            \"code\": \"VIEW_STATES_DETAIL\",\n            \"name\": \"View state details\",\n            \"description\": \"Permission to view the details of a specific state record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 13,\n            \"code\": \"CREATE_STATES\",\n            \"name\": \"Create states\",\n            \"description\": \"Permission to create a new state record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 14,\n            \"code\": \"EDIT_STATES\",\n            \"name\": \"Edit states\",\n            \"description\": \"Permission to modify an existing state record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 15,\n            \"code\": \"DELETE_STATES\",\n            \"name\": \"Delete states\",\n            \"description\": \"Permission to remove a state record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 16,\n            \"code\": \"VIEW_CITIES\",\n            \"name\": \"View cities\",\n            \"description\": \"Permission to view all city records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 17,\n            \"code\": \"VIEW_CITIES_DETAIL\",\n            \"name\": \"View city details\",\n            \"description\": \"Permission to view the details of a specific city record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 18,\n            \"code\": \"CREATE_CITIES\",\n            \"name\": \"Create cities\",\n            \"description\": \"Permission to create a new city record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 19,\n            \"code\": \"EDIT_CITIES\",\n            \"name\": \"Edit cities\",\n            \"description\": \"Permission to modify an existing city record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 20,\n            \"code\": \"DELETE_CITIES\",\n            \"name\": \"Delete cities\",\n            \"description\": \"Permission to remove a city record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 21,\n            \"code\": \"VIEW_USERS\",\n            \"name\": \"View users\",\n            \"description\": \"Permission to view all user accounts.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 22,\n            \"code\": \"VIEW_USERS_DETAIL\",\n            \"name\": \"View user details\",\n            \"description\": \"Permission to view the details of a specific user account.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 23,\n            \"code\": \"CREATE_USERS\",\n            \"name\": \"Create users\",\n            \"description\": \"Permission to create a new user account.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 24,\n            \"code\": \"EDIT_USERS\",\n            \"name\": \"Edit users\",\n            \"description\": \"Permission to modify an existing user account.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 25,\n            \"code\": \"DELETE_USERS\",\n            \"name\": \"Delete users\",\n            \"description\": \"Permission to deactivate or remove a user account.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 26,\n            \"code\": \"VIEW_ROLES\",\n            \"name\": \"View roles\",\n            \"description\": \"Permission to view all role records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 27,\n            \"code\": \"VIEW_ROLES_DETAIL\",\n            \"name\": \"View role details\",\n            \"description\": \"Permission to view the details of a specific role record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 28,\n            \"code\": \"CREATE_ROLES\",\n            \"name\": \"Create roles\",\n            \"description\": \"Permission to create a new role.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 29,\n            \"code\": \"EDIT_ROLES\",\n            \"name\": \"Edit roles\",\n            \"description\": \"Permission to modify an existing role.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 30,\n            \"code\": \"DELETE_ROLES\",\n            \"name\": \"Delete roles\",\n            \"description\": \"Permission to remove a role.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 31,\n            \"code\": \"VIEW_PERMISSIONS\",\n            \"name\": \"View permissions\",\n            \"description\": \"Permission to view all permission records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 32,\n            \"code\": \"VIEW_PERMISSIONS_DETAIL\",\n            \"name\": \"View permission details\",\n            \"description\": \"Permission to view the details of a specific permission record.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 33,\n            \"code\": \"CREATE_PERMISSIONS\",\n            \"name\": \"Create permissions\",\n            \"description\": \"Permission to create a new permission.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 34,\n            \"code\": \"EDIT_PERMISSIONS\",\n            \"name\": \"Edit permissions\",\n            \"description\": \"Permission to modify an existing permission.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 35,\n            \"code\": \"DELETE_PERMISSIONS\",\n            \"name\": \"Delete permissions\",\n            \"description\": \"Permission to remove a permission.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 36,\n            \"code\": \"VIEW_ROLE_PERMISSIONS\",\n            \"name\": \"View role permissions\",\n            \"description\": \"Permission to view all role-permission associations.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 37,\n            \"code\": \"VIEW_ROLE_PERMISSIONS_DETAIL\",\n            \"name\": \"View role-permission details\",\n            \"description\": \"Permission to view the details of a specific role-permission association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 38,\n            \"code\": \"CREATE_ROLE_PERMISSIONS\",\n            \"name\": \"Create role permissions\",\n            \"description\": \"Permission to create a new role-permission association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 39,\n            \"code\": \"EDIT_ROLE_PERMISSIONS\",\n            \"name\": \"Edit role permissions\",\n            \"description\": \"Permission to modify an existing role-permission association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 40,\n            \"code\": \"DELETE_ROLE_PERMISSIONS\",\n            \"name\": \"Delete role permissions\",\n            \"description\": \"Permission to remove a role-permission association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 41,\n            \"code\": \"VIEW_USER_ROLES\",\n            \"name\": \"View user roles\",\n            \"description\": \"Permission to view all user-role associations.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 42,\n            \"code\": \"VIEW_USER_ROLES_DETAIL\",\n            \"name\": \"View user-role details\",\n            \"description\": \"Permission to view the details of a specific user-role association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 43,\n            \"code\": \"CREATE_USER_ROLES\",\n            \"name\": \"Create user roles\",\n            \"description\": \"Permission to create a new user-role association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 44,\n            \"code\": \"EDIT_USER_ROLES\",\n            \"name\": \"Edit user roles\",\n            \"description\": \"Permission to modify an existing user-role association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 45,\n            \"code\": \"DELETE_USER_ROLES\",\n            \"name\": \"Delete user roles\",\n            \"description\": \"Permission to remove a user-role association.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 46,\n            \"code\": \"VIEW_NOTIFICATION_METHODS\",\n            \"name\": \"View notification methods\",\n            \"description\": \"Permission to view all notification method records.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 47,\n            \"code\": \"VIEW_NOTIFICATION_METHODS_DETAIL\",\n            \"name\": \"View notification method details\",\n            \"description\": \"Permission to view the details of a specific notification method.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 48,\n            \"code\": \"CREATE_NOTIFICATION_METHODS\",\n            \"name\": \"Create notification methods\",\n            \"description\": \"Permission to create a new notification method.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 49,\n            \"code\": \"EDIT_NOTIFICATION_METHODS\",\n            \"name\": \"Edit notification methods\",\n            \"description\": \"Permission to modify an existing notification method.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        },\n        {\n            \"id\": 50,\n            \"code\": \"DELETE_NOTIFICATION_METHODS\",\n            \"name\": \"Delete notification methods\",\n            \"description\": \"Permission to remove a notification method.\",\n            \"created_at\": \"2025-01-17T21:54:00.000Z\",\n            \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n        }\n    ],\n    \"message\": \"Permissions retrieved successfully\",\n    \"info\": {\n        \"totals\": {\n            \"show\": 50,\n            \"total\": 375\n        },\n        \"pages\": {\n            \"current\": 1,\n            \"totalPages\": 8,\n            \"next\": 2,\n            \"previous\": 1\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get one permission",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/permissions/{{PERMISSION_ID}}",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"permissions",
+										"{{PERMISSION_ID}}"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name,code,description",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions/{{PERMISSION_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions",
+												"{{PERMISSION_ID}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "262"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"106-IpSCN6y2qpSk0Nvy3xcTpz4psiU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:06:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"code\": \"VIEW_ADDRESS_TYPES\",\n        \"name\": \"View address types\",\n        \"description\": \"Permission to view all address type records.\",\n        \"created_at\": \"2025-01-17T21:54:00.000Z\",\n        \"updated_at\": \"2025-01-17T21:54:00.000Z\"\n    },\n    \"message\": \"Operation successful\"\n}"
+								},
+								{
+									"name": "[OK] - Request with specific fields",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions/{{PERMISSION_ID}}?fields=name,code, description",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions",
+												"{{PERMISSION_ID}}"
+											],
+											"query": [
+												{
+													"key": "fields",
+													"value": "name,code, description"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "175"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"af-sU3e9QB0Sm0XKnf1ARbgRAHiMHc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:07:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"View address types\",\n        \"code\": \"VIEW_ADDRESS_TYPES\",\n        \"description\": \"Permission to view all address type records.\"\n    },\n    \"message\": \"Operation successful\"\n}"
+								},
+								{
+									"name": "[ERROR] - Field not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions/{{PERMISSION_ID}}?fields=name,code, descriptio",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions",
+												"{{PERMISSION_ID}}"
+											],
+											"query": [
+												{
+													"key": "fields",
+													"value": "name,code, descriptio"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "174"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ae-qyU7XdCv/7j/xXwHEx/9yD8nagY\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:08:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"DATABASE_ERROR\",\n        \"message\": \"Unknown column 'descriptio' in 'field list'\",\n        \"bodySent\": {},\n        \"paramsSent\": {},\n        \"database_code\": \"ER_BAD_FIELD_ERROR\"\n    }\n}"
+								},
+								{
+									"name": "[ERROR] - Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions/{{BAD_PERMISSION_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions",
+												"{{BAD_PERMISSION_ID}}"
+											],
+											"query": [
+												{
+													"key": "fields",
+													"value": "name,code,description",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "139"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8b-KJbAu6M9qNANIMVqa9Rd7vmgq6E\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:09:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"DATABASE_ERROR\",\n        \"message\": \"Permission with ID 999999 not found not found\",\n        \"bodySent\": {},\n        \"paramsSent\": {}\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"VIEW_ADDRESS_TYPESS\",\n    \"description\" : \"This is description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/permissions",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"permissions"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[ERROR] - Missing parameters",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"world\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "221"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"dd-n1JPqtfKEvvaUGkww6hVmy13M/s\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:47:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"MISSING_PARAMETERS\",\n        \"message\": \"Permission validation failed: \\\"description\\\" is required\",\n        \"resource\": \"Missing parameters for \\\"permissions\\\"\",\n        \"bodySent\": {\n            \"name\": \"world\"\n        },\n        \"paramsSent\": {}\n    }\n}"
+								},
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"test\",\n    \"description\" : \"This is description\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "222"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"de-hzEmT18uLYaMogeRWthE/MRPzso\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:47:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"created_at\": \"2025-01-19T04:47:50.304Z\",\n        \"updated_at\": \"2025-01-19T04:47:50.304Z\",\n        \"id\": 376,\n        \"code\": \"TEST\",\n        \"name\": \"test\",\n        \"description\": \"This is description\"\n    },\n    \"message\": \"Permission created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Edit permission",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"View address types\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/permissions/{{PERMISSION_ID}}",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"permissions",
+										"{{PERMISSION_ID}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\" : \"View address types\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions/{{PERMISSION_ID}}",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions",
+												"{{PERMISSION_ID}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "273"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"111-cOmbsAlRD0WJNK0Cth7JqiCO004\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 05:40:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"code\": \"VIEW_ADDRESS_TYPES\",\n        \"name\": \"View address types\",\n        \"description\": \"Permission to view all address type records.\",\n        \"created_at\": \"2025-01-17T21:54:00.000Z\",\n        \"updated_at\": \"2025-01-19T05:40:08.000Z\"\n    },\n    \"message\": \"Permission updated successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete permission",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/permissions/378",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"permissions",
+										"378"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Options",
+							"request": {
+								"method": "OPTIONS",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/permissions",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"permissions"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[OK] - Success response",
+									"originalRequest": {
+										"method": "OPTIONS",
+										"header": [],
+										"url": {
+											"raw": "{{ENDPOINT_LOCAL}}/permissions",
+											"host": [
+												"{{ENDPOINT_LOCAL}}"
+											],
+											"path": [
+												"permissions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Allow",
+											"value": "GET,POST,PUT,DELETE,OPTIONS"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "91"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5b-8KQyvOTwz7BYX+HEbgEAJL0Oy6E\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 19 Jan 2025 04:13:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": null,\n    \"message\": \"Available methods: GET, POST, PUT, DELETE, OPTIONS\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/health",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "[OK] - Success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/health",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "428"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ac-NVrH9FareS4xlynfQIQn8HFVzFk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 03:25:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"status\": \"OK\",\n        \"uptime\": \"0h 0m 1s\",\n        \"timestamp\": \"2025-01-19T03:25:08.755Z\",\n        \"version\": \"1.0.0\",\n        \"environment\": \"development\",\n        \"db\": {\n            \"status\": \"connected\"\n        },\n        \"systemResources\": {\n            \"cpuLoad\": [\n                4.06884765625,\n                3.87548828125,\n                3.4677734375\n            ],\n            \"memoryUsage\": \"87.63%\",\n            \"freeMemory\": \"4560.98 MB\",\n            \"totalMemory\": \"36864.00 MB\"\n        },\n        \"envStatus\": {\n            \"missingEnvVars\": [\n                \"NODE_ENV\"\n            ]\n        },\n        \"responseTime\": \"38.58 ms\"\n    },\n    \"message\": \"Health check successful\"\n}"
+						},
+						{
+							"name": "[ERROR] - Error with database connection",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/health",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"health"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c6-Wn5d6lSZF+6noWwzEC7jCCszR0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 03:24:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"error\": {\n        \"type\": \"DATABASE_ERROR\",\n        \"message\": \"Access denied for user 'root'@'localhost' (using password: YES)\",\n        \"bodySent\": {},\n        \"paramsSent\": {},\n        \"database_code\": \"ER_ACCESS_DENIED_ERROR\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Liveness",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/health/liveness",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"health",
+								"liveness"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "[OK] - Success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/health/liveness",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"health",
+										"liveness"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-tnfXJDgR64D2ZvrH3qONwZ9bC9o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 03:26:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"status\": \"Alive\"\n    },\n    \"message\": \"Alive\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Readiness",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/health/readiness",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"health",
+								"readiness"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "[OK] - Success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/health/readiness",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"health",
+										"readiness"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-q8s3BMmjI8rDAt/KUDsrsIhn8PI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 03:27:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"status\": \"Ready\"\n    },\n    \"message\": \"Ready\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/users",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/users/1",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\" : \"Raymundo\",\n    \"last_name\" : \"Salazar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/users/1",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\" : \"Raymundo\",\n    \"last_name\" : \"Salazar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/users",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "State",
+					"item": [
+						{
+							"name": "Get state by city",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/cities/1/state",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"cities",
+										"1",
+										"state"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/cities",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one city",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/cities/2?state",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"cities",
+								"2"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one city",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Test\",\n    \"state_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/cities",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one city",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Test city\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/cities/16",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"cities",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one city",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/cities/16",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"cities",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Options",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/cities",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "States",
+			"item": [
+				{
+					"name": "Cities",
+					"item": [
+						{
+							"name": "Get cities by State",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/states/1/cities",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"states",
+										"1",
+										"cities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove cities from state",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cities\" : [\n        {\n            \"id\" : 1\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/states/1/cities",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"states",
+										"1",
+										"cities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add cities from state Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cities\" : [\n        {\n            \"id\" : 1\n        },\n        {\n            \"id\" : 5\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/states/1/cities",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"states",
+										"1",
+										"cities"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Country",
+					"item": [
+						{
+							"name": "Get country belongs to",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/states/18/country",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"states",
+										"18",
+										"country"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set country to state",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"country\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/states/18/country",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"states",
+										"18",
+										"country"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove country from state",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"country\" : {\n        \"id\" : \"2\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/states/18/country",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"states",
+										"18",
+										"country"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all states",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/states",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"states"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one state",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/states/1",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"states",
+								"1"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "cities",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "name, abbreviation",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create state",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"TEst\",\n    \"abbreviation\" : \"TES\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/states",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"states"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create state Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"country_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/states/18",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"states",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete state",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/states/32",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"states",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Options",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/states",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"states"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "States by country",
+					"item": [
+						{
+							"name": "Get states by country",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/countries/{{COUNTRY_ID}}/states",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"countries",
+										"{{COUNTRY_ID}}",
+										"states"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "name,abbreviation",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set state to city",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"states\" : [{\n        \"id\" : 1\n    },{\n        \"id\" : 2\n    }]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/countries/{{COUNTRY_ID}}/states",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"countries",
+										"{{COUNTRY_ID}}",
+										"states"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove states from city",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"states\": [\n        {\n            \"id\": 1\n        },\n        {\n            \"id\": 2\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ENDPOINT_LOCAL}}/countries/{{COUNTRY_ID}}/states",
+									"host": [
+										"{{ENDPOINT_LOCAL}}"
+									],
+									"path": [
+										"countries",
+										"{{COUNTRY_ID}}",
+										"states"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/countries",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"countries"
+							],
+							"query": [
+								{
+									"key": "states",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "countries.name,states.name",
+									"disabled": true
+								},
+								{
+									"key": "search[name][like]",
+									"value": "%United%",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get country by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/countries/{{COUNTRY_ID}}?fields=name,area_code",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"countries",
+								"{{COUNTRY_ID}}"
+							],
+							"query": [
+								{
+									"key": "states",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "name,area_code"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Canada\",\n    \"abbreviation\" : \"CA\",\n    \"area_code\" : \"+1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/countries",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"countries"
+							],
+							"query": [
+								{
+									"key": "states",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"abbreviation\" : \"CA\",\n    \"area_code\" : \"+1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/countries/3",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"countries",
+								"3"
+							],
+							"query": [
+								{
+									"key": "states",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/countries/4",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"countries",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Options",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT_LOCAL}}/countries",
+							"host": [
+								"{{ENDPOINT_LOCAL}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ENDPOINT_LOCAL",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		},
+		{
+			"key": "BAD_ID",
+			"value": "999999",
+			"type": "string"
+		},
+		{
+			"key": "ROLE_ID",
+			"value": "1"
+		},
+		{
+			"key": "BAD_ROLE_ID",
+			"value": "999999"
+		},
+		{
+			"key": "PERMISSION_ID",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "BAD_PERMISSION_ID",
+			"value": "999999",
+			"type": "string"
+		},
+		{
+			"key": "COUNTRY_ID",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "STATE_ID",
+			"value": "19",
+			"type": "string"
+		},
+		{
+			"key": "CITY_ID",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}

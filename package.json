@@ -1,0 +1,36 @@
+{
+  "name": "diloconflores-api",
+  "version": "1.0.0",
+  "description": "API backend for Dilo con Flores, an online store specializing in floral arrangements and personalized gifts, based in Monterrey, Nuevo León.",
+  "main": "dist/server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/server/index.js",
+    "dev": "nodemon src/server/index.ts",
+    "build": "tsc",
+    "clean": "ts-node --clear-cache"
+  },
+  "dependencies": {
+    "@types/pluralize": "0.0.33",
+    "bcrypt": "5.1.1",
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "joi": "17.13.3",
+    "jsonwebtoken": "9.0.0",
+    "mysql2": "3.1.2",
+    "pluralize": "8.0.0",
+    "sequelize": "6.32.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "5.0.2",
+    "@types/bcryptjs": "2.4.2",
+    "@types/express": "4.17.15",
+    "@types/jsonwebtoken": "9.0.1",
+    "@types/node": "18.15.11",
+    "nodemon": "2.0.22",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.1.6"
+  }
+}
