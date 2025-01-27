@@ -1,0 +1,5 @@
+{
+    "api": {
+        "options_available": "Metodos disponibles para este servicio: {{methods}}"
+    }
+}

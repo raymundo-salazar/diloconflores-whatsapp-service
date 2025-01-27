@@ -1,0 +1,8 @@
+{
+    "api": {
+        "options_available": "Available methods for this ENDPOINT: {{methods}}",
+        "errors": {
+            "already_exists": "{{resource}} already exists"
+        }
+    }
+}

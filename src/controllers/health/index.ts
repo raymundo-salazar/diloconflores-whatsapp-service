@@ -5,11 +5,7 @@ import { DatabaseError } from "@helpers/errors";
 import { successResponse } from "@helpers/response";
 import { checkEnvVariables, checkSystemResources } from "./services";
 
-export const healthCheck = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const healthCheck = async (req: Request, res: Response, next: NextFunction) => {
   const startTime = process.hrtime();
 
   try {
@@ -23,10 +19,7 @@ export const healthCheck = async (
     const envStatus = checkEnvVariables();
 
     const responseTime = process.hrtime(startTime);
-    const responseTimeMs = (
-      responseTime[0] * 1000 +
-      responseTime[1] / 1e6
-    ).toFixed(2);
+    const responseTimeMs = (responseTime[0] * 1000 + responseTime[1] / 1e6).toFixed(2);
 
     const data = {
       status: "OK",
@@ -40,24 +33,20 @@ export const healthCheck = async (
       responseTime: `${responseTimeMs} ms`,
     };
 
-    successResponse(res, data, "Health check successful");
+    successResponse(req, res, data, "Health check successful");
   } catch (error) {
     next(new DatabaseError(error));
   }
 };
 
 export const liveness = async (req: Request, res: Response) => {
-  successResponse(res, { status: "Alive" }, "Alive");
+  successResponse(req, res, { status: "Alive" }, "Alive");
 };
 
-export const readiness = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const readiness = async (req: Request, res: Response, next: NextFunction) => {
   try {
     await sequelize.authenticate();
-    successResponse(res, { status: "Ready" }, "Ready");
+    successResponse(req, res, { status: "Ready" }, "Ready");
   } catch (error) {
     next(new DatabaseError(error));
   }

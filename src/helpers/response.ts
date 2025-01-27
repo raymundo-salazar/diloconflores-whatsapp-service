@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { Response, Request } from "express";
 import { totalmem } from "os";
 
 interface Totals {
@@ -19,6 +19,7 @@ interface Info {
 }
 
 export const successResponse = (
+  req: Request,
   res: Response,
   data: any,
   message: string = "Operation successful",
@@ -52,6 +53,7 @@ export const successResponse = (
     message,
     data,
     info,
+    lang: req.language,
   });
 };
 

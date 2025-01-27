@@ -1,15 +1,15 @@
 import { Request, Response, NextFunction } from "express";
 import { successResponse } from "@helpers/response";
 import { CreationError, MissingParametersError, NotFoundError } from "@helpers/errors";
-import { Association, Model, ModelStatic, Op, UUIDV4, WhereOptions } from "sequelize";
-import { processFields, processSubQuery } from "@helpers/db/processSubQuery";
+import { Association, Model, ModelStatic, Op } from "sequelize";
+import { processFields } from "@helpers/db/processSubQuery";
 import { calculateOffset, processInfo } from "@helpers/info";
 import { processSearchParams } from "@helpers/db/where";
 import { AttributesRelation, IncludeOptions } from "./types";
-import Joi from "joi";
-import path from "path";
 import { plural, singular } from "pluralize";
-import { get } from "http";
+import Joi from "joi";
+
+import { t } from "i18next";
 
 export class ApiController<T extends Model> {
   protected methodsAllowed: string[] = ["GET", "POST", "PUT", "DELETE", "OPTIONS"];
@@ -54,7 +54,13 @@ export class ApiController<T extends Model> {
 
   public options = async (req: Request, res: Response) => {
     res.setHeader("Allow", this.methodsAllowed);
-    successResponse(res, null, `Available methods: ${this.methodsAllowed}`);
+    successResponse(
+      req,
+      res,
+      null,
+      req.t("api.options_available", { methods: this.methodsAllowed.join(", ") }),
+      200
+    );
   };
 
   protected setCreationError = (error: any) => {
@@ -67,7 +73,7 @@ export class ApiController<T extends Model> {
         field: err.path,
         value: err.value,
       }));
-      error = new CreationError(`${this.entity} already exists.`);
+      error = new CreationError(t("api.errors.already_exists", { resource: this.entity }));
       error.sql = sql;
       error.errors = errors;
       error.database_code = type;
@@ -106,7 +112,7 @@ export class ApiController<T extends Model> {
 
       const info = processInfo(page, records.length, totalRecords, limit, offset);
 
-      successResponse(res, records, `${this.entity} retrieved successfully`, 200, info);
+      successResponse(req, res, records, `${this.entity} retrieved successfully`, 200, info);
     } catch (error: any) {
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -132,7 +138,13 @@ export class ApiController<T extends Model> {
 
       if (!record) throw new NotFoundError(`${this.entity} with ID "${id}"`, this.entity);
 
-      successResponse(res, record, `${singular(this.entity)} "${id}" retrieved successfully`, 200);
+      successResponse(
+        req,
+        res,
+        record,
+        `${singular(this.entity)} "${id}" retrieved successfully`,
+        200
+      );
     } catch (error: any) {
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -164,7 +176,7 @@ export class ApiController<T extends Model> {
       const record = await this.model.create({
         ...body,
       });
-      successResponse(res, record, `${this.entity} created successfully`, 201);
+      successResponse(req, res, record, `${this.entity} created successfully`, 201);
     } catch (error: any) {
       console.log(error);
       if (error.parent?.code === "ER_DUP_ENTRY") error = this.setCreationError(error);
@@ -192,7 +204,7 @@ export class ApiController<T extends Model> {
       if (!record) throw new NotFoundError(`${this.entity} with ID "${id}"`, this.entity);
 
       await record.update(body);
-      successResponse(res, record, `${this.entity} updated successfully`, 200);
+      successResponse(req, res, record, `${this.entity} updated successfully`, 200);
     } catch (error: any) {
       if (error.parent?.code === "ER_DUP_ENTRY") error = this.setCreationError(error);
 
@@ -217,7 +229,7 @@ export class ApiController<T extends Model> {
         await record.destroy({ force: true });
       }
 
-      successResponse(res, null, `${this.entity} deleted successfully`, 200);
+      successResponse(req, res, null, `${this.entity} deleted successfully`, 200);
     } catch (error: any) {
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -293,7 +305,7 @@ export class ApiController<T extends Model> {
         ? processInfo(page, response.length, count, limit, offset)
         : undefined;
 
-      successResponse(res, response, "Associated records retrieved successfully", 200, info);
+      successResponse(req, res, response, "Associated records retrieved successfully", 200, info);
     } catch (error) {
       next(error);
     }
@@ -368,7 +380,7 @@ export class ApiController<T extends Model> {
         ? processInfo(page, response.length, count, limit, offset)
         : undefined;
 
-      successResponse(res, response, "Associated records added successfully", 200, info);
+      successResponse(req, res, response, "Associated records added successfully", 200, info);
     } catch (error) {
       next(error);
     }
@@ -406,7 +418,7 @@ export class ApiController<T extends Model> {
           .replace(/\s/g, "")}`;
 
         await parentEntity[addAssociation]?.(null);
-        successResponse(res, null, `Associated records removed successfully`, 200);
+        successResponse(req, res, null, `Associated records removed successfully`, 200);
       } else {
         const removeAssociation = `remove${associationName
           .replace(/^\w/g, (char) => char.toUpperCase())
@@ -416,7 +428,7 @@ export class ApiController<T extends Model> {
           (body as any)[associationName].map((item: any) => item.id)
         );
 
-        successResponse(res, null, `Associated records removed successfully`, 200);
+        successResponse(req, res, null, `Associated records removed successfully`, 200);
       }
     } catch (error) {
       next(error);
