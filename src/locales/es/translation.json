@@ -1,5 +1,26 @@
 {
     "api": {
-        "options_available": "Metodos disponibles para este servicio: {{methods}}"
+        "options_available": "Metodos disponibles para este servicio: {{methods}}",
+        "retrived_successfully": "{{resource, translate:resources}} recuperado exitosamente",
+        "errors": {
+            "already_exists": "{{resource, translate:resources}} ya existe",
+            "not_found": "{{resource, translate:resources}} con id \"{{id}}\" no encontrado"
+        }
+    },
+    "resources": {
+        "user": "Usuario",
+        "users": "Usuarios",
+        "city": "Ciudad",
+        "cities": "Ciudades",
+        "country": "País",
+        "countries": "Países",
+        "state": "Estado",
+        "states": "Estados",
+        "address": "Dirección",
+        "addresses": "Direcciones",
+        "permissions": "Permisos",
+        "permission": "Permiso",
+        "role": "Rol",
+        "roles": "Roles"
     }
 }

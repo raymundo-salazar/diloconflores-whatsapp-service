@@ -16,6 +16,16 @@ i18next
     },
     interpolation: {
       escapeValue: false,
+      format: (value, format, lng) => {
+        if (format === "uppercase") return value.toUpperCase();
+        if (format === "lowercase") return value.toLowerCase();
+        if (format === "capitalize") return value.charAt(0).toUpperCase() + value.slice(1);
+        if (format?.startsWith("translate:")) {
+          const sourceKey = format.split(":")[1]; // Extrae la fuente de traducción dinámica
+          return i18next.t(`${sourceKey}.${value.toLowerCase()}`, { lng }) || value;
+        }
+        return value;
+      },
     },
   });
 

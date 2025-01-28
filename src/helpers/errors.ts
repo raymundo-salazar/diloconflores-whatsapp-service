@@ -34,8 +34,8 @@ export class AuthError extends CustomError {
 
 // Error cuando un recurso no se encuentra
 export class NotFoundError extends CustomError {
-  constructor(resource = "Resource", path = "") {
-    super(`${resource} not found`, 404, "NOT_FOUND_ERROR", path);
+  constructor(message = "Resource", path = "") {
+    super(message, 404, "NOT_FOUND_ERROR", path);
   }
 }
 
@@ -48,12 +48,7 @@ export class CreationError extends CustomError {
 
 export class MissingParametersError extends CustomError {
   constructor(message = "Missing parameters", resource = "Resource") {
-    super(
-      message,
-      400,
-      "MISSING_PARAMETERS",
-      `Missing parameters for "${resource}"`
-    );
+    super(message, 400, "MISSING_PARAMETERS", `Missing parameters for "${resource}"`);
   }
 }
 

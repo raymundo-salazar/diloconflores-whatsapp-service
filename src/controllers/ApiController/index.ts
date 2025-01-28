@@ -9,8 +9,6 @@ import { AttributesRelation, IncludeOptions } from "./types";
 import { plural, singular } from "pluralize";
 import Joi from "joi";
 
-import { t } from "i18next";
-
 export class ApiController<T extends Model> {
   protected methodsAllowed: string[] = ["GET", "POST", "PUT", "DELETE", "OPTIONS"];
   protected model!: ModelStatic<T>;
@@ -63,7 +61,7 @@ export class ApiController<T extends Model> {
     );
   };
 
-  protected setCreationError = (error: any) => {
+  protected setCreationError = (error: any, req: Request) => {
     if (error.parent.code === "ER_DUP_ENTRY") {
       const sql = error.parent?.sql;
       const type = error.errors[0].type.replace(/\s/g, "_").toUpperCase();
@@ -73,7 +71,7 @@ export class ApiController<T extends Model> {
         field: err.path,
         value: err.value,
       }));
-      error = new CreationError(t("api.errors.already_exists", { resource: this.entity }));
+      error = new CreationError(req.t("api.errors.already_exists", { resource: this.entity }));
       error.sql = sql;
       error.errors = errors;
       error.database_code = type;
@@ -112,7 +110,14 @@ export class ApiController<T extends Model> {
 
       const info = processInfo(page, records.length, totalRecords, limit, offset);
 
-      successResponse(req, res, records, `${this.entity} retrieved successfully`, 200, info);
+      successResponse(
+        req,
+        res,
+        records,
+        req.t("api.retrived_successfully", { resource: plural(this.entity) }),
+        200,
+        info
+      );
     } catch (error: any) {
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -136,14 +141,20 @@ export class ApiController<T extends Model> {
         include,
       });
 
-      if (!record) throw new NotFoundError(`${this.entity} with ID "${id}"`, this.entity);
+      if (!record)
+        throw new NotFoundError(
+          req.t("api.errors.not_found", { resource: singular(this.entity), id }),
+          this.entity
+        );
 
       successResponse(
         req,
         res,
         record,
-        `${singular(this.entity)} "${id}" retrieved successfully`,
-        200
+        req.t("api.retrived_successfully_with_id", {
+          resource: singular(this.entity),
+          id,
+        })
       );
     } catch (error: any) {
       if (error.resource) error.resource = this.entity;
@@ -176,10 +187,15 @@ export class ApiController<T extends Model> {
       const record = await this.model.create({
         ...body,
       });
-      successResponse(req, res, record, `${this.entity} created successfully`, 201);
+      successResponse(
+        req,
+        res,
+        record,
+        req.t("api.created_successfully", { resource: singular(this.entity) }),
+        201
+      );
     } catch (error: any) {
-      console.log(error);
-      if (error.parent?.code === "ER_DUP_ENTRY") error = this.setCreationError(error);
+      if (error.parent?.code === "ER_DUP_ENTRY") error = this.setCreationError(error, req);
 
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -201,12 +217,21 @@ export class ApiController<T extends Model> {
       }
 
       const record = await this.model.findByPk(id);
-      if (!record) throw new NotFoundError(`${this.entity} with ID "${id}"`, this.entity);
+      if (!record)
+        throw new NotFoundError(
+          req.t("api.errors.not_found", { resource: this.entity, id }),
+          this.entity
+        );
 
       await record.update(body);
-      successResponse(req, res, record, `${this.entity} updated successfully`, 200);
+      successResponse(
+        req,
+        res,
+        record,
+        req.t("api.updated_successfully", { resource: this.entity })
+      );
     } catch (error: any) {
-      if (error.parent?.code === "ER_DUP_ENTRY") error = this.setCreationError(error);
+      if (error.parent?.code === "ER_DUP_ENTRY") error = this.setCreationError(error, req);
 
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -221,7 +246,11 @@ export class ApiController<T extends Model> {
     try {
       const { id } = req.params;
       const record = await this.model.findByPk(id);
-      if (!record) throw new NotFoundError(`${this.entity} with ID "${id}"`, this.entity);
+      if (!record)
+        throw new NotFoundError(
+          req.t("api.errors.not_found", { resource: this.entity }),
+          this.entity
+        );
 
       if (this.logicalDelete) {
         await record.destroy();
@@ -229,7 +258,7 @@ export class ApiController<T extends Model> {
         await record.destroy({ force: true });
       }
 
-      successResponse(req, res, null, `${this.entity} deleted successfully`, 200);
+      successResponse(req, res, null, req.t("api.deleted_successfully", { resource: this.entity }));
     } catch (error: any) {
       if (error.resource) error.resource = this.entity;
       next(error);
@@ -275,7 +304,12 @@ export class ApiController<T extends Model> {
       const association = associations[associationName];
 
       if (!association) {
-        throw new NotFoundError(`Association ${associationName} in module`);
+        throw new NotFoundError(
+          req.t("api.errors.association_not_found", {
+            resource: this.entity,
+            association: associationName,
+          })
+        );
       }
 
       const getAssociation = `get${this.association
@@ -289,7 +323,7 @@ export class ApiController<T extends Model> {
 
       if (!parentEntity) {
         return res.status(404).json({
-          message: `${this.entity} with ID ${id} not found.`,
+          message: req.t("api.errors.not_found", { resource: this.entity, id }),
         });
       }
 
@@ -305,7 +339,14 @@ export class ApiController<T extends Model> {
         ? processInfo(page, response.length, count, limit, offset)
         : undefined;
 
-      successResponse(req, res, response, "Associated records retrieved successfully", 200, info);
+      successResponse(
+        req,
+        res,
+        response,
+        req.t("api.retrived_successfully", { resource: associationName }),
+        200,
+        info
+      );
     } catch (error) {
       next(error);
     }
@@ -329,11 +370,17 @@ export class ApiController<T extends Model> {
       const association = associations[associationName];
 
       if (!association) {
-        throw new NotFoundError(`Association ${associationName} in module`);
+        throw new NotFoundError(
+          req.t("api.errors.association_not_found", {
+            resource: this.entity,
+            association: associationName,
+          })
+        );
       }
 
       const parentEntity: any = await this.model.findByPk(id);
-      if (!parentEntity) throw new NotFoundError(`${this.entity} with ID ${id}`);
+      if (!parentEntity)
+        throw new NotFoundError(req.t("api.errors.not_found", { resource: this.entity }));
 
       if (this.createAssociationSchema[associationName]) {
         const { error } = this.createAssociationSchema[associationName].validate(body);
@@ -380,7 +427,14 @@ export class ApiController<T extends Model> {
         ? processInfo(page, response.length, count, limit, offset)
         : undefined;
 
-      successResponse(req, res, response, "Associated records added successfully", 200, info);
+      successResponse(
+        req,
+        res,
+        response,
+        req.t("api.added_successfully", { resource: associationName }),
+        200,
+        info
+      );
     } catch (error) {
       next(error);
     }
@@ -400,15 +454,20 @@ export class ApiController<T extends Model> {
       const association = associations[associationName];
 
       if (!association) {
-        throw new NotFoundError(`Association ${associationName} in module`);
+        throw new NotFoundError(
+          req.t("api.errors.association_not_found", {
+            resource: this.entity,
+            association: associationName,
+          })
+        );
       }
 
       const parentEntity: any = await this.model.findByPk(id);
-      if (!parentEntity) throw new NotFoundError(`${this.entity} with ID ${id}`);
+      if (!parentEntity)
+        throw new NotFoundError(req.t("api.errors.not_found", { resource: this.entity }));
 
       if (this.deleteAssociationSchema[associationName]) {
         const { error } = this.deleteAssociationSchema[associationName].validate(body);
-        console.log("error", error, associationName);
         if (error) throw new MissingParametersError(error.message);
       }
 
@@ -418,7 +477,12 @@ export class ApiController<T extends Model> {
           .replace(/\s/g, "")}`;
 
         await parentEntity[addAssociation]?.(null);
-        successResponse(req, res, null, `Associated records removed successfully`, 200);
+        successResponse(
+          req,
+          res,
+          null,
+          req.t("api.removed_successfully", { resource: associationName })
+        );
       } else {
         const removeAssociation = `remove${associationName
           .replace(/^\w/g, (char) => char.toUpperCase())
@@ -428,7 +492,12 @@ export class ApiController<T extends Model> {
           (body as any)[associationName].map((item: any) => item.id)
         );
 
-        successResponse(req, res, null, `Associated records removed successfully`, 200);
+        successResponse(
+          req,
+          res,
+          null,
+          req.t("api.removed_successfully", { resource: associationName })
+        );
       }
     } catch (error) {
       next(error);

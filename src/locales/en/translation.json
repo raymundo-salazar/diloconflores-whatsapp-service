@@ -1,8 +1,33 @@
 {
     "api": {
         "options_available": "Available methods for this ENDPOINT: {{methods}}",
+        "retrived_successfully": "{{resource, translate:resources}} retrived successfully",
+        "retrived_successfully_with_id": "{{resource, translate:resources}} with id \"{{id}}\" retrived successfully",
+        "created_successfully": "{{resource, translate:resources}} created successfully",
+        "updated_successfully": "{{resource, translate:resources}} updated successfully",
+        "deleted_successfully": "{{resource, translate:resources}} deleted successfully",
+        "added_successfully": "{{resource, translate:resources}} added successfully",
+        "removed_successfully": "{{resource, translate:resources}} removed successfully",
         "errors": {
-            "already_exists": "{{resource}} already exists"
+            "already_exists": "{{resource, translate:resources}} already exists",
+            "not_found": "{{resource, translate:resources}} with id \"{{id}}\" not found",
+            "association_not_found": "{{resource, translate:resources}} has no association with {{association, translate:resources}}"
         }
+    },
+    "resources": {
+        "user": "User",
+        "users": "Users",
+        "city": "City",
+        "cities": "Cities",
+        "country": "Country",
+        "countries": "Countries",
+        "state": "State",
+        "states": "States",
+        "address": "Address",
+        "addresses": "Addresses",
+        "permissions": "Permissions",
+        "permission": "Permission",
+        "role": "Role",
+        "roles": "Roles"
     }
 }
