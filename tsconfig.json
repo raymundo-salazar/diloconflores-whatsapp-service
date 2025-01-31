@@ -10,7 +10,7 @@
       "@helpers/*": ["helpers/*"]
     },
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -18,8 +18,8 @@
     "target": "es2021",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "typeRoots": ["./src/types"]
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

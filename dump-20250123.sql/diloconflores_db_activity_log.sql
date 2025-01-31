@@ -21,6 +21,7 @@ USE `diloconflores_db`;
 -- Table structure for table `activity_log`
 --
 
+
 DROP TABLE IF EXISTS `activity_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -28,20 +29,29 @@ CREATE TABLE `activity_log` (
   `id` int NOT NULL AUTO_INCREMENT,
   `uuid` char(36) NOT NULL,
   `user_id` int DEFAULT NULL,
-  `action_type` varchar(50) NOT NULL,
-  `action_description` text NOT NULL,
-  `entity` varchar(50) DEFAULT NULL,
+  `action_type_id` INT DEFAULT NULL,
+  `entity_type_id` int DEFAULT NULL,
   `entity_id` int DEFAULT NULL,
-  `metadata` json DEFAULT NULL,
-  `status` enum('success','failed','pending') DEFAULT 'pending',
-  `error_message` text,
-  `link` varchar(255) DEFAULT NULL,
-  `ip_address` varchar(50) DEFAULT NULL,
+  `headers` json DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `params` json DEFAULT NULL,
+  `body` json DEFAULT NULL,
+  `response` json DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `session_id` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `finished_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uuid` (`uuid`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `activity_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
+  KEY `action_type_id` (`action_type_id`),
+  KEY `entity_type_id` (`entity_type_id`),
+  KEY `session_id` (`session_id`),
+  CONSTRAINT `activity_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `activity_log_action_type_ibfk_1` FOREIGN KEY (`action_type_id`) REFERENCES `action_types` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `activity_log_entity_type_ibfk_1` FOREIGN KEY (`entity_type_id`) REFERENCES `entity_types` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `activity_log_session_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `sessions` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

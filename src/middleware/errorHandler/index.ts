@@ -1,18 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import {
-  CreationError,
-  CustomError,
-  MissingParametersError,
-  DatabaseError,
-} from "@helpers/errors";
+import { CreationError, CustomError, MissingParametersError, DatabaseError } from "@helpers/errors";
 const { NODE_ENV, SHOW_ERRORS = true } = process.env;
 
-export const errorHandler = (
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+  let message = err.message;
+  if (message.startsWith("api.")) message = req.t(message);
+
   const { show_errors: _show_errors = SHOW_ERRORS } = req.query;
   const show_errors = _show_errors && _show_errors != "false";
 
@@ -31,7 +24,7 @@ export const errorHandler = (
       error: {
         type: err.errorType,
         database_code: err.database_code,
-        message: err.message,
+        message: message,
         resource: err.resource,
         sql: NODE_ENV !== "production" ? err.sql : undefined,
         errors: err.errors,

@@ -60,6 +60,7 @@ Users.init(
       type: DataTypes.STRING(36),
       allowNull: false,
       unique: true,
+      defaultValue: DataTypes.UUIDV4,
     },
     referral_code: {
       type: DataTypes.STRING(20),
@@ -79,7 +80,7 @@ Users.init(
     },
     full_name: {
       type: DataTypes.STRING(100),
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING(100),
@@ -161,13 +162,11 @@ Users.init(
     timestamps: false,
     hooks: {
       beforeCreate: async (user) => {
-        const salt = await bcrypt.genSalt(PASSWORD_ROUNDS);
-        user.password = await bcrypt.hash(user.password + salt, PASSWORD_ROUNDS);
+        user.password = await bcrypt.hash(user.password, PASSWORD_ROUNDS);
       },
       beforeUpdate: async (user) => {
         if (user.changed("password")) {
-          const salt = await bcrypt.genSalt(PASSWORD_ROUNDS);
-          user.password = await bcrypt.hash(user.password + salt, PASSWORD_ROUNDS);
+          user.password = await bcrypt.hash(user.password, PASSWORD_ROUNDS);
         }
       },
       afterUpdate: async (user) => {

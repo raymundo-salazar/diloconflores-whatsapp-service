@@ -20,6 +20,7 @@ export const createUserSchema = Joi.object({
     .min(8)
     .max(128)
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)
+    .message("api.errors.create_users.password_pattern")
     .required(),
   phone: Joi.string().optional(),
   birth_date: Joi.date().optional(),

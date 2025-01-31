@@ -28,11 +28,12 @@ CREATE TABLE `sessions` (
   `id` int NOT NULL AUTO_INCREMENT,
   `uuid` char(36) NOT NULL,
   `user_id` int NOT NULL,
+  `session_type` varchar(50) DEFAULT NULL,
   `access_token_hash` varchar(255) NOT NULL,
   `refresh_token_hash` varchar(255) NOT NULL,
-  `expires_at` timestamp NOT NULL,
+  `refresh_id` int DEFAULT NULL,
+  `fingerprint` varchar(255) NOT NULL,
   `last_activity_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `revoked` tinyint(1) DEFAULT '0',
   `device_type` varchar(50) DEFAULT NULL,
   `os` varchar(50) DEFAULT NULL,
   `os_version` varchar(20) DEFAULT NULL,
@@ -49,11 +50,17 @@ CREATE TABLE `sessions` (
   `network_downlink` decimal(5,2) DEFAULT NULL,
   `network_rtt` int DEFAULT NULL,
   `location` varchar(100) DEFAULT NULL,
+  `expires_at` timestamp NOT NULL,
+  `revoked` tinyint(1) DEFAULT '0',
+  `revoked_at` timestamp NULL DEFAULT NULL,
+  `revoked_reason` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uuid` (`uuid`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `session_type` (`session_type`),
+  CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
+  CONSTRAINT `sessions_ibfk_2` FOREIGN KEY (`refresh_id`) REFERENCES `sessions` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

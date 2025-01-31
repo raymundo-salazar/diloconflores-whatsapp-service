@@ -27,8 +27,8 @@ export class CustomError extends Error {
 
 // Error para fallos de autenticación
 export class AuthError extends CustomError {
-  constructor(message = "Authentication failed") {
-    super(message, 401, "AUTHENTICATION_ERROR");
+  constructor(message = "Authentication failed", statusCode = 401) {
+    super(message, statusCode, "AUTHENTICATION_ERROR");
   }
 }
 

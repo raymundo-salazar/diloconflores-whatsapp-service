@@ -7,6 +7,7 @@ import routes from "@routes/index";
 import { errorHandler } from "@middleware/errorHandler";
 import { responseHandler } from "@middleware/responseHandler";
 import { notFoundHandler } from "@middleware/notFoundHandler";
+import AuthController from "@controllers/auth";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use(middleware.handle(i18next));
+app.use(AuthController.validateToken);
 
 // ADMIN ROUTES
 app.use("/api", routes);

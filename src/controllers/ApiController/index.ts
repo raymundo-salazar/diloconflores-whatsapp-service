@@ -1,3 +1,4 @@
+require("dotenv").config();
 import { Request, Response, NextFunction } from "express";
 import { successResponse } from "@helpers/response";
 import { CreationError, MissingParametersError, NotFoundError } from "@helpers/errors";
@@ -5,9 +6,14 @@ import { Association, Model, ModelStatic, Op } from "sequelize";
 import { processFields } from "@helpers/db/processSubQuery";
 import { calculateOffset, processInfo } from "@helpers/info";
 import { processSearchParams } from "@helpers/db/where";
-import { AttributesRelation, IncludeOptions } from "./types";
+import { AttributesRelation, DeviceInfo, IncludeOptions } from "./types";
 import { plural, singular } from "pluralize";
 import Joi from "joi";
+import { sign, SignOptions } from "jsonwebtoken";
+import { createHash } from "crypto";
+import useragent from "useragent";
+import geoip from "geoip-lite";
+const { JWT_SECRET = "", REFRESH_TOKEN_SECRET = "", GLOBAL_LANGUAGE = "en" } = process.env;
 
 export class ApiController<T extends Model> {
   protected methodsAllowed: string[] = ["GET", "POST", "PUT", "DELETE", "OPTIONS"];
@@ -77,6 +83,74 @@ export class ApiController<T extends Model> {
       error.database_code = type;
     }
     return error;
+  };
+
+  protected createAccessToken = (req: Request, user: string, expiresDate: Date) => {
+    const now = Math.floor(Date.now() / 1000);
+    const expiresIn = Math.floor(expiresDate.getTime() / 1000) - now;
+    const fingerprint = this.getFingerprint(req, user);
+    console.log("expiresIn", expiresIn, expiresDate);
+
+    const token = sign({ user, fingerprint }, JWT_SECRET, {
+      expiresIn,
+    });
+    const hashedToken = createHash("sha256").update(token).digest("hex");
+    return { token, hashedToken };
+  };
+
+  /**
+   *
+   * @param req Request
+   * @param userHash string
+   * @param expiresDate Date
+   * @returns object { refreshToken, hashedRefreshToken }
+   * @description Create a refresh token with the user and fingerprint
+   * data with 7 days more of expiration of session token.
+   */
+  protected createRefreshToken = (req: Request, userHash: string, expiresDate: Date) => {
+    expiresDate = new Date(expiresDate.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const now = Math.floor(Date.now() / 1000);
+    const expiresIn = Math.floor(expiresDate.getTime() / 1000) - now;
+
+    const fingerprint = this.getFingerprint(req, userHash);
+    const refreshToken = sign({ user: userHash, fingerprint }, REFRESH_TOKEN_SECRET, {
+      expiresIn,
+    });
+    const hashedRefreshToken = createHash("sha256").update(refreshToken).digest("hex");
+    return { refreshToken, hashedRefreshToken };
+  };
+
+  protected getDeviceInfo = (req: Request): DeviceInfo => {
+    const agent = useragent.parse(req.headers["user-agent"]);
+    const clientIp = (req.headers["x-forwarded-for"] || req.socket.remoteAddress || "")
+      .toString()
+      .split(",")[0]
+      .trim();
+    const geo = geoip.lookup(clientIp);
+
+    const deviceInfo: DeviceInfo = {
+      ip: clientIp || "Unknown",
+      deviceType: agent.device.family || "Unknown",
+      os: agent.os.toString() || "Unknown",
+      osVersion: agent.os.toVersion() || "Unknown",
+      browser: agent.toAgent() || "Unknown",
+      browserVersion: agent.toVersion() || "Unknown",
+      language: req.headers["accept-language"] || GLOBAL_LANGUAGE,
+      location: geo
+        ? `${geo.city || "Unknown"}, ${geo.region || "Unknown"}, ${geo.country || "Unknown"}`
+        : "Unknown",
+      userAgent: req.headers["user-agent"] || "Unknown",
+    };
+
+    return deviceInfo;
+  };
+
+  protected getFingerprint = (req: Request, userUuid: string): string => {
+    const deviceInfo = this.getDeviceInfo(req);
+    const fingerprint = createHash("sha256")
+      .update(`${deviceInfo.deviceType}-${deviceInfo.os}-${deviceInfo.browser}-${userUuid}`)
+      .digest("hex");
+    return fingerprint;
   };
 
   public getAll = async (
@@ -161,6 +235,7 @@ export class ApiController<T extends Model> {
       next(error);
     }
   };
+
   public setSchemaValidation = (schema: Joi.ObjectSchema) => {
     this.schema = schema;
     return this;

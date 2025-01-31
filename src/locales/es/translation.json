@@ -1,10 +1,29 @@
 {
     "api": {
-        "options_available": "Metodos disponibles para este servicio: {{methods}}",
-        "retrived_successfully": "{{resource, translate:resources}} recuperado exitosamente",
+        "options_available": "Métodos disponibles para este ENDPOINT: {{methods}}",
+        "retrived_successfully": "{{resource, translate:resources}} recuperado con éxito",
+        "retrived_successfully_with_id": "{{resource, translate:resources}} con id \"{{id}}\" recuperado con éxito",
+        "created_successfully": "{{resource, translate:resources}} creado con éxito",
+        "updated_successfully": "{{resource, translate:resources}} actualizado con éxito",
+        "deleted_successfully": "{{resource, translate:resources}} eliminado con éxito",
+        "added_successfully": "{{resource, translate:resources}} añadido con éxito",
+        "removed_successfully": "{{resource, translate:resources}} eliminado con éxito",
+        "session_created": "Sesión creada con éxito",
+        "session_refreshed": "Sesión refrescada con éxito",
+        "logout_session": "Sesión cerrada con éxito por el usuario",
         "errors": {
             "already_exists": "{{resource, translate:resources}} ya existe",
-            "not_found": "{{resource, translate:resources}} con id \"{{id}}\" no encontrado"
+            "not_found": "{{resource, translate:resources}} con id \"{{id}}\" no encontrado",
+            "association_not_found": "{{resource, translate:resources}} no tiene asociación con {{association, translate:resources}}",
+            "create_users": {
+                "password_pattern": "La contraseña debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y caracteres especiales"
+            },
+            "unathorized": "Acceso denegado. Credenciales inválidas o faltantes.",
+            "forbidden": "Acceso denegado. No tienes permiso para acceder a este recurso",
+            "unathorized_token": "Acceso denegado. Token inválido o expirado",
+            "unathorized_bearer": "Acceso denegado. Por favor proporciona un token Bearer válido",
+            "unathorized_fingerprint": "Acceso denegado. Huella digital o dispositivo inválido",
+            "unathorized_refresh_token": "Acceso denegado. Token de refresco inválido"
         }
     },
     "resources": {
@@ -21,6 +40,16 @@
         "permissions": "Permisos",
         "permission": "Permiso",
         "role": "Rol",
-        "roles": "Roles"
+        "roles": "Roles",
+        "session": "Sesión",
+        "sessions": "Sesiones",
+        "entityType": "Tipo de Entidad",
+        "entityTypes": "Tipos de Entidades",
+        "entity": "Entidad",
+        "entities": "Entidades",
+        "actionType": "Tipo de Acción",
+        "actionTypes": "Tipos de Acciones",
+        "activityLog": "Registro de Actividad",
+        "activityLogs": "Registros de Actividad"
     }
 }

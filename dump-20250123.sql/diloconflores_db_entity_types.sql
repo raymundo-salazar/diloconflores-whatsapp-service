@@ -18,15 +18,15 @@ USE `diloconflores_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `entities`
+-- Table structure for table `entity_types`
 --
 
-DROP TABLE IF EXISTS `entities`;
+DROP TABLE IF EXISTS `entity_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `entities` (
+
+CREATE TABLE `entity_types` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `uuid` char(36) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `active` tinyint(1) DEFAULT '1',
@@ -39,12 +39,30 @@ CREATE TABLE `entities` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `entities`
+-- Dumping data for table `entity_types`
 --
 
-LOCK TABLES `entities` WRITE;
-/*!40000 ALTER TABLE `entities` DISABLE KEYS */;
-/*!40000 ALTER TABLE `entities` ENABLE KEYS */;
+LOCK TABLES `entity_types` WRITE;
+/*!40000 ALTER TABLE `entity_types` DISABLE KEYS */;
+
+INSERT INTO entity_types (uuid, name, description)
+SELECT 
+	DISTINCT UUID(), 
+    `table` as name, 
+    (CONCAT(
+		UCASE(
+			LEFT(
+				replace(description, "Permission to view all ", ""), 1
+			)
+		),
+        SUBSTRING(
+			replace(description, "Permission to view all ", ""), 2
+		)
+	)) as description FROM permissions
+WHERE `table` IS NOT NULL
+GROUP BY `table`;
+
+/*!40000 ALTER TABLE `entity_types` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
