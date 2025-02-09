@@ -6,3 +6,4 @@ _*
 *.log
 *.log.*
 downloads
+.DS_Store
