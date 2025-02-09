@@ -10,7 +10,21 @@
         "removed_successfully": "{{resource, translate:resources}} eliminado con éxito",
         "session_created": "Sesión creada con éxito",
         "session_refreshed": "Sesión refrescada con éxito",
-        "logout_session": "Sesión cerrada con éxito por el usuario",
+        "logout_session": "Sesión cerrada con éxito",
+        "logout_all_sessions": "Todas las sessiones han sido cerradas con éxito",
+        "logout_all_sessions_but_this": "Se han cerrado todas las sessiones activas excepto esta. Te mantendrás activo en este dispositivo.",
+        "retrived_deleted_records_successfully": "Registros eliminados recuperados con éxito",
+        "restored_successfully": "{{resource, translate:resources}} restaurado con éxito",
+        "whatsapp": {
+            "sent_successfully": "Mensaje enviado con éxito",
+            "sent_failed": "Fallo al enviar el mensaje",
+            "sent_failed_with_error": "Fallo al enviar el mensaje con error: {{error}}",
+            "deactivated": "El servicio de WhatsApp está desactivado",
+            "activated": "El servicio de WhatsApp está activado",
+            "deactivated_failed": "Fallo al desactivar el servicio de WhatsApp",
+            "activated_failed": "Fallo al activar el servicio de WhatsApp",
+            "qr_code_retrived": "Código QR recuperado con éxito"
+        },
         "errors": {
             "already_exists": "{{resource, translate:resources}} ya existe",
             "not_found": "{{resource, translate:resources}} con id \"{{id}}\" no encontrado",
@@ -50,6 +64,8 @@
         "actionType": "Tipo de Acción",
         "actionTypes": "Tipos de Acciones",
         "activityLog": "Registro de Actividad",
-        "activityLogs": "Registros de Actividad"
+        "activityLogs": "Registros de Actividad",
+        "phoneNumber": "Número de Teléfono",
+        "phoneNumbers": "Números de Teléfono"
     }
 }

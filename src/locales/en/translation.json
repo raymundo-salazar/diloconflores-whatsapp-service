@@ -10,7 +10,21 @@
         "removed_successfully": "{{resource, translate:resources}} removed successfully",
         "session_created": "Session created successfully",
         "session_refreshed": "Session refreshed successfully",
-        "logout_session": "Session logged out successfully by user",
+        "logout_session": "Session logged out successfully",
+        "logout_all_sessions": "All session logged out successfully",
+        "logout_all_sessions_but_this": "All other sessions have been logged. You remain logged in on this device.",
+        "retrived_deleted_records_successfully": "Retrived deleted records successfully",
+        "restored_successfully": "{{resource, translate:resources}} restored successfully",
+        "whatsapp": {
+            "sent_successfully": "Message sent successfully",
+            "sent_failed": "Message sending failed",
+            "sent_failed_with_error": "Message sending failed with error: {{error}}",
+            "deactivated": "WhatsApp service is deactivated",
+            "activated": "WhatsApp service is activated",
+            "deactivated_failed": "WhatsApp service deactivation failed",
+            "activated_failed": "WhatsApp service activation failed",
+            "qr_code_retrived": "QR code retrived successfully"
+        },
         "errors": {
             "already_exists": "{{resource, translate:resources}} already exists",
             "not_found": "{{resource, translate:resources}} with id \"{{id}}\" not found",
@@ -27,6 +41,8 @@
         }
     },
     "resources": {
+        "phoneNumber": "Phone Number",
+        "phoneNumbers": "Phone Numbers",
         "user": "User",
         "users": "Users",
         "city": "City",

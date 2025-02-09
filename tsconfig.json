@@ -7,6 +7,7 @@
       "@models/*": ["models/*"],
       "@config/*": ["config/*"],
       "@middleware/*": ["middleware/*"],
+      "@services/*": ["services/*"],
       "@helpers/*": ["helpers/*"]
     },
     "outDir": "./dist",
