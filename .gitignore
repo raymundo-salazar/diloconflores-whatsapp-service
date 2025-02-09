@@ -2,3 +2,7 @@ dist
 node_modules
 .wwebjs_auth
 .wwebjs_cache
+_*
+*.log
+*.log.*
+downloads
